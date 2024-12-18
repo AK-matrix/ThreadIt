@@ -1,4 +1,3 @@
-/* prettier-ignore-start */
 import React, { useState } from "react";
 import CommentItem from "./CommentItem";
 import Comment from "../types/Comment";
@@ -18,7 +17,9 @@ const BasicCommentList: React.FC<Props> = ({ styled }: Props) => {
       timestamp: new Date(2022, 10, 28, 10, 33, 30),
     },
     {
-      body: "Code reuse is the Holy Grail of Software Engineering.\n" + " ~ Douglas Crockford",
+      body:
+        "Code reuse is the Holy Grail of Software Engineering.\n" +
+        " ~ Douglas Crockford",
       author: "Casey",
       timestamp: new Date(2022, 11, 1, 11, 11, 11),
     },
@@ -30,7 +31,7 @@ const BasicCommentList: React.FC<Props> = ({ styled }: Props) => {
   ]);
 
   const [text, setText] = useState("");
-  
+
   const handleEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
   };
@@ -41,14 +42,18 @@ const BasicCommentList: React.FC<Props> = ({ styled }: Props) => {
     const bod = text;
     const auth = "Anonymous";
     setText("");
-    setComments([...comments, {body: bod, author: auth, timestamp: now},]);
+    setComments([...comments, { body: bod, author: auth, timestamp: now }]);
   };
 
   return (
     <>
       <ul>
         {comments.map((comment) => (
-          <CommentItem comment={comment} styled={styled} key={comment.timestamp.toString()} />
+          <CommentItem
+            comment={comment}
+            styled={styled}
+            key={comment.timestamp.toString()}
+          />
         ))}
       </ul>
       <form onSubmit={addNew}>
@@ -60,7 +65,7 @@ const BasicCommentList: React.FC<Props> = ({ styled }: Props) => {
           id="textbox"
           value={text}
         />
-    
+
         <button type="submit" className="btn btn-secondary">
           Add Comment
         </button>
@@ -70,4 +75,3 @@ const BasicCommentList: React.FC<Props> = ({ styled }: Props) => {
 };
 
 export default BasicCommentList;
-/* prettier-ignore-end */
